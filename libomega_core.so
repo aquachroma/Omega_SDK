@@ -1,0 +1,35 @@
+import omega_sdk as omega
+
+# Initialize the Node and identify the local hardware strata
+node = omega.initialize_node(mode="sovereign")
+
+# Verify the connection to the Orbital Checksum (The Warp)
+if node.trace_orbital():
+    print("Orbital Reference: LOCKED")
+    
+
+
+# Apply the terrestrial refractive correction
+# This connects the node to the 'Liquid Lens' reference system
+node.apply_refraction(source="pnnl_wave_pool_alpha")
+
+print(f"Current Phase Jitter: {node.get_jitter()} ns") # Aiming for < 1ns
+
+
+
+# Establish a 16-bit Tetrahedral Voxel lock
+# This pins the node to the National Volumetric Reference Framework
+voxel = node.lock_voxel(resolution=16)
+
+# Set the Scalar Mass (Documenting the GT impact)
+# This writes the physical 'weight' of the node to the Omega Core
+voxel.set_scalar_metadata(mass_gt=0.005, description="Substation-Alpha-Security")
+
+
+
+
+# Engage spatial isolation
+# This creates the 'Sovereign Voxel' around the local node
+node.engage_loom(isolation_db=-60)
+
+print("Physical Sovereignty: ACTIVE")
