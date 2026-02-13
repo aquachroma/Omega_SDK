@@ -1,32 +1,32 @@
 [build-system]
-requires = ["setuptools>=61.0", "wheel", "pybind11>=2.10"]
+requires = ["setuptools>=61.0", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
 name = "omega-sdk"
-version = "1.0.0-alpha"
-description = "Python bindings for the National Volumetric Reference Framework (NVRF)"
+version = "0.1.0"
+description = "Deterministic Python interface for high-precision fluidic orchestration."
 readme = "README.md"
-requires-python = ">=3.9"
-authors = [
-    {name = "Aqua Chroma", email = "hello@aquachroma.com"}
-]
-keywords = ["Aqua Chroma", "RAEN", "Tetrahedral-Sync", "Sovereign-Voxel", "NIST-Traceable"]
-classifiers = [
-    "Development Status :: 3 - Alpha",
-    "Intended Audience :: Science/Research",
-    "Topic :: Scientific/Engineering :: Physics",
-    "Programming Language :: Python :: 3",
-]
+requires-python = ">=3.8"
+license = {text = "Apache-2.0"}
 dependencies = [
-    "numpy>=1.22",  # For handling 16-bit tetrahedral arrays
-    "pydantic>=2.0" # For validating Scalar Metadata schemas
+	"numpy",
+	"pydantic",
+	"rich"
 ]
 
-[project.urls]
-Homepage = "https://github.com/aquachroma/omega-sdk"
-Documentation = "https://aquachroma/omega"
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["omega*"]
+exclude = [
+	"omega/*.cpp", 
+	"omega/*.h", 
+	"omega/*.so", 
+	"omega/*.dylib", 
+	"muscle*", 
+	"private*"
+]
 
 [tool.setuptools.package-data]
-# This ensures the compiled Invariant is included in the wheel
-"pyomega" = ["libomega_core.so", "*.h"]
+# Ensure we don't accidentally ship the binary through package-data
+"*" = ["*.md", "*.jsonl"]

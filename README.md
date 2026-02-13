@@ -1,62 +1,74 @@
-# **Aqua Chroma: National Volumetric Reference Framework (NVRF)**
+## **Aqua Chroma: National Volumetric Reference Framework (NVRF) Omega SDK**
+**Standard:** ISO 16/32-bit Physical Synthesis  
+**Document:** Ref-Impl-2026-Alpha  
+**Status:** [SYSTEM STATE: SOLIDIFIED]
 
-### **The Sovereign Standard for 16-bit Physical Synthesis**
+---
 
-The **Aqua Chroma SDK** is the authoritative implementation of the **RAEN Protocol**. It provides the necessary tools to align distributed industrial and scientific nodes with the **Clean Constant**—a national, synchronized reference for volumetric mass and temporal certainty.
+### **High-Precision Fluidic Orchestration & Validation**
 
-By Month 24 ("The Arrival"), this framework will serve as the **Physical Ledger of Truth** for all federal and strategic synthesis assets.
-
-
-```
-/
-/ (root)
-├── omega/                # The Core Logic (Internal)
-│   ├── core.cpp          # The C++ Implementation
-│   ├── core.h            # The C Bridge (The Header)
-│   ├── core.rs           # The Rust Safety Layer
-│   └── core.py           # The High-level Python abstraction
-├── src/                  # The "Build" folder (External)
-│   └── main.cpp          # If you have a standalone C++ entry point
-├── pyproject.toml        # Points to omega/core.py
-└── init.sh               # Compiles omega/core.cpp into libomega_core.so
-
-```
+The Omega SDK provides a deterministic Python interface for managing high-frequency environmental rectification and 16-bit spatial invariants. 
+It is designed to bridge the gap between high-level logic and low-latency physical actuation (the "Sovereign Guardband").
+This SDK is a deterministic interface layer. The proprietary invariant core performs the hardware-timed execution.
 
 ---
 
 ## **Core Components**
 
-* **The Invariant (`libomega_core.so`):** The compiled binary core. It enforces 16-bit tetrahedral geometric invariance, bypassing legacy OS non-determinism.
-* **The Handshake (`omega_sync.py`):** The entry point for nodes to synchronize with the **Orbital Warp** and the **PNNL Wave Pool**.
-* **The Jitter-Guard:** A continuous background process that monitors and neutralizes phase friction (Slime) to maintain the lock.
-* **The Ledger (`/logs/`):** High-frequency, JSONL-formatted telemetry that provides a NIST-traceable record of every voxel solidified.
+* **The Invariant Core:** The high-performance engine block (Proprietary). It enforces tetrahedral geometric invariance and maintains the 0.5ns guardband.
+* **The Orchestrator (`omega_sync.py`):** The primary entry point for nodes to synchronize local hardware with the National Strata.
+* **The Ledger (`/logs/`):** High-frequency telemetry recording Phase Friction and Indeterminacy Events for NIST-traceable auditing.
+* **The Validation Suite (`tools/`):** Analytics for mapping local stability against the Month 24 "Arrival" trajectory.
 
 ---
 
-## **Quick Start: The Path of Least Resistance**
+## **System Architecture**
 
-### **1. Initialization**
-
-Deploy the environment and verify the Invariant:
-
-```bash
-chmod +x init.sh
-./init.sh
+```text
+/
+├── omega/				# SDK Interface Layer
+│   ├── __init__.py	   # Package Initialization
+│   ├── core.py		   # The FFI Bridge (Logic Layer)
+│   └── core_loader.py	# Invariant Engine Discovery
+├── tools/				# Analytics & Reporting
+│   └── aggregate_strata.py
+├── examples/			 # Implementation Reference
+├── logs/				 # Local Ledger (Auto-generated)
+├── docs/				 # SOPs & Governance Templates
+├── omega_sync.py		 # Main Handshake / Orchestrator
+├── init.sh			   # Environment Synthesis Forge
+└── pyproject.toml		# Unified Package Definition
 
 ```
 
-### **2. Establish Sovereignty**
+---
 
-Perform the initial handshake to lock your local node to the national heartbeat:
+## **Standard Operating Procedure (SOP)**
+
+### **1. Environment Initialization**
+
+Prepare the local environment and verify Python dependencies:
+
+```bash
+# Recommended: Use a virtual environment
+python -m venv venv
+source venv/bin/activate
+pip install .
+
+```
+
+### **2. Grid-Coupling (Sovereignty Check)**
+
+Initiate the handshake to align the local oscillator. This establishes a "Voxel Lock" based on your hardware's autodetected density.
 
 ```bash
 python omega_sync.py --node-id [NODE_ID] --mass [GT_TARGET]
 
 ```
 
-### **3. Audit and Report**
+### **3. Generating the Strata Report**
 
-Consolidate local telemetry into an Executive Summary for the Science Committee:
+Consolidate telemetry into an Executive Summary mapping the **Indeterminacy Score**.
 
 ```bash
 python tools/aggregate_strata.py
@@ -65,22 +77,21 @@ python tools/aggregate_strata.py
 
 ---
 
-## **Architecture of the Clean Constant**
+## **Safety & Resilience Protocols**
 
-The system operates on a three-tier synchronization model to eliminate "shimmer" and ensure physical stability:
+### **Indeterminacy Mitigation**
 
-1. **Orbital Trace:** Provides the master temporal warp reference.
-2. **Terrestrial Wave Pool:** Liquid-lens refraction offsets provided by PNNL to calibrate local environmental interference.
-3. **Local Voxel Lock:** The 16-bit tetrahedral grid where code is resynthesized into physical action.
+The system monitors **Phase Friction**. If friction exceeds the **0.50ns Guardband**, the SDK logs an anomaly and initiates a re-quantization pulse to maintain coherence.
 
----
+### **The De-Coherence Protocol**
 
-## **Reporting & Compliance**
-
-All activity is governed by the `docs/summary_template.md`. The **Log-Aggregator** automatically generates a **National Strata Report**, ensuring that the **Sovereign Handshake** and subsequent **Jitter-Guard** activities are documented for executive oversight.
+Should the **Divergence Threshold** be breached, the node will initiate a **Physical De-Coherence**, sanitizing local buffers to protect the integrity of the National Strata.
 
 ---
 
-**Contact:** [hello@aquachroma.com](mailto:hello@aquachroma.com)
+**Technical Oversight:** [GitHub Discussions](https://github.com/aquachroma/Omega_SDK/discussions)
 
-**Registry:** [https://github.com/aquachroma/omega-sdk](https://github.com/aquachroma/omega-sdk)
+**SDK Registry:** [https://github.com/aquachroma/Omega_SDK](https://github.com/aquachroma/Omega_SDK)
+**Core Access:** To register a Node and obtain the **Invariant Engine**, visit the [Aqua Chroma Portal](https://www.google.com/search?q=https://aquachroma.com/register)
+
+```

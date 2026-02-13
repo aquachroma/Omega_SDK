@@ -1,42 +1,35 @@
 #!/bin/bash
+# Omega SDK Initialization Forge
 
-# Aqua Chroma Multi-Core Initialization
-# Targets: C++, Rust, Python (PEP 621)
-# Result: libomega_core.so (The Invariant)
+echo "=================================================="
+echo "    OMEGA SDK: SOVEREIGN NODE INITIALIZATION     "
+echo "=================================================="
 
-set -e
+# 1. Identity Capture
+echo "--------------------------------------------------"
+echo " [IDENTITY ANCHOR] "
+echo " Providing a Registry Handle allows the National Strata"
+echo " to attribute your node's stability metrics and grant"
+echo " priority access to the 16-bit Invariant Core."
+echo "--------------------------------------------------"
+read -p "[?] Enter your Sovereign Identity (Handle): " USER_HANDLE
 
-echo "--- [Aqua Chroma] Compiling Multi-Language Core ---"
+# 2. Sovereign Registration
+echo "[*] Generating Hardware Anchor..."
+python3 -c "from tools.get_node_fingerprint import register_node; register_node('$USER_HANDLE')"
 
-# 1. Scaffolding
-mkdir -p logs docs tools
-
-# 2. Compile the C++ Invariant
-# This takes the raw math and generates the physical logic gate
-echo "[*] Compiling C++ Core Logic..."
-g++ -O3 -shared -fPIC -o libomega_core.so omega/core.cpp \
-    -I./omega \
-    -std=c++17
-
-# 3. Verify Rust Safety Bridge (Optional/Conditional)
-# If the node requires high-concurrency (Wave Pools/AESAs), we check the Rust core
-if command -v cargo &> /dev/null && [ -f "omega/core.rs" ]; then
-    echo "[*] Validating Rust Safety Layer..."
-    # Note: In a full deployment, this would link into the .so
-    # cargo build --release
+if [ -f "node_id.json" ]; then
+    NODE_HASH=$(python3 -c "import json; print(json.load(open('node_id.json'))['node_hash'])")
+    echo "[+] Node Registered Successfully."
+    echo "[*] Assigned Node Hash: $NODE_HASH"
+else
+    echo "[!] Warning: Registry connection failed. Operating in Shadow Mode."
 fi
 
-# 4. Bind Python to the Invariant
-# Uses the pyproject.toml to link omega/core.py to libomega_core.so
-echo "[*] Binding Python interface to the Invariant..."
-pip install -e .
+# 3. Environment Prep
+mkdir -p logs
+touch logs/national_ledger.jsonl
 
-# 5. Calculate Stability Dissonance Baseline
-# Runs a quick 1-second check to ensure the local CPU isn't 'shimmering'
-echo "[*] Running Dissonance Baseline..."
-python3 -c "import pyomega; print('Baseline Stability: SOLID')"
-
-echo "-------------------------------------------------------"
-echo "[SUCCESS] Aqua Chroma Strata Initialized."
-echo "Invariant Hash: $(shasum -a 256 libomega_core.so | awk '{print $1}')"
-echo "-------------------------------------------------------"
+echo "=================================================="
+echo "    HANDSHAKE COMPLETE: NODE READY FOR CORE      "
+echo "=================================================="

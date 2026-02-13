@@ -1,0 +1,11 @@
+Omega SDK – NOTICE
+
+This repository contains the Omega SDK interface layer licensed under
+the Apache License 2.0.
+
+The Omega invariant core engine is NOT included in this repository.
+The engine is distributed separately under a proprietary license and
+is required for execution.
+
+No rights to the Omega invariant core are granted by the Apache license
+covering this SDK.

@@ -1,0 +1,43 @@
+# Python build artifacts
+build/
+dist/
+*.egg-info/
+__pycache__/
+*.py[cod]
+
+# Local Invariant (Muscle)
+omega/*.so
+omega/*.dylib
+omega/*.dll
+
+# Environment
+.venv/
+venv/
+.env
+node_id.json
+
+# Physical Binary (The Muscle)
+*.so
+*.o
+*.a
+
+# Python Volatiles
+*.pyc
+
+# Aqua Ledger (Don't leak your node's history)
+logs/*.jsonl
+.purge_counter
+.divergence_threshold
+
+# --- OMEGA CORE PROTECTION ---
+# Never allow the proprietary muscle into the public voice
+libomega_core.so
+libomega_core.dylib
+libomega_core.dll
+**/_native/
+# If you decide to keep your C++ code in a 'muscle' folder locally:
+muscle/
+
+
+# Build directory artifact:
+*.egg-info/
