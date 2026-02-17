@@ -1,3 +1,16 @@
+# """
+# AQUA CHROMA OMEGA SDK - NATIONAL VOLUMETRIC REFERENCE INTERFACE
+# Copyright (c) 2026 Aqua Chroma. 
+# 
+# TECHNICAL NOTICE: This SDK is a deterministic interface layer. 
+# Modification of the orchestration logic or guardband enforcement routines 
+# may result in a loss of synchronization with the National Strata. 
+# 
+# Interoperability with the high-precision Invariant Core is contingent 
+# upon maintaining the integrity of this routing layer and successful 
+# node-hash validation via the Aqua Chroma Registry.
+# """
+# 
 #!/bin/bash
 # Omega SDK Initialization Forge
 
@@ -33,3 +46,15 @@ touch logs/national_ledger.jsonl
 echo "=================================================="
 echo "    HANDSHAKE COMPLETE: NODE READY FOR CORE      "
 echo "=================================================="
+
+if [ -f "node_id.json" ]; then
+    echo "[*] Identity Anchored. Requesting Engine from Registry..."
+    python3 -c "from tools.fetch_engine import install_engine; install_engine()"
+    
+    # Verify placement
+    if [ -f "omega/libomega_core.so" ]; then
+        echo "=================================================="
+        echo "    SUCCESS: CHASSIS AND ENGINE INTEGRATED       "
+        echo "=================================================="
+    fi
+fi

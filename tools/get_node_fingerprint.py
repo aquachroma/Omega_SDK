@@ -6,7 +6,7 @@ import urllib.request
 import time
 
 def generate_fingerprint():
-    sys_info = f"{platform.system()}-{platform.node()}-{platform.machine()}"
+    sys_info = "{}-{}-{}".format(platform.system(), platform.node(), platform.machine())
     try:
         if platform.system() == "Darwin":
             cmd = "ioreg -rd1 -c IOPlatformExpertDevice | grep IOPlatformUUID"
@@ -15,7 +15,7 @@ def generate_fingerprint():
         hw_id = subprocess.check_output(cmd, shell=True).decode().strip()
     except:
         hw_id = "UNANCHORED-NODE"
-    return hashlib.sha256(f"{sys_info}-{hw_id}".encode()).hexdigest()
+    return hashlib.sha256("{}-{}".format(sys_info, hw_id).encode()).hexdigest()
 
 def register_node(handle):
     """

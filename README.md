@@ -43,9 +43,9 @@ This SDK is a deterministic interface layer. The proprietary invariant core perf
 
 ---
 
-## **Standard Operating Procedure (SOP)**
+## **Standard Operating Procedure (SOP) Common, Then Windows**
 
-### **1. Environment Initialization**
+### **1. (Common) Environment Initialization**
 
 Prepare the local environment and verify Python dependencies:
 
@@ -77,6 +77,15 @@ python tools/aggregate_strata.py
 
 ---
 
+### **1. (Windows) Environment Initialization**
+
+* 1. **Install Python:** Download from [python.org](https://www.python.org/) **(Ensure "Add Python to PATH" is checked)**.
+* 2. **Initialize:** Double-click `init.bat` in the root folder.
+* 3. **Note:** Windows users do not need WSL or Git Bash; the SDK runs natively in CMD or PowerShell.
+
+---
+
+
 ## **Safety & Resilience Protocols**
 
 ### **Indeterminacy Mitigation**
@@ -92,6 +101,5 @@ Should the **Divergence Threshold** be breached, the node will initiate a **Phys
 **Technical Oversight:** [GitHub Discussions](https://github.com/aquachroma/Omega_SDK/discussions)
 
 **SDK Registry:** [https://github.com/aquachroma/Omega_SDK](https://github.com/aquachroma/Omega_SDK)
-**Core Access:** To register a Node and obtain the **Invariant Engine**, visit the [Aqua Chroma Portal](https://www.google.com/search?q=https://aquachroma.com/register)
 
 ```

@@ -1,7 +1,34 @@
+"""
+AQUA CHROMA OMEGA SDK - NATIONAL VOLUMETRIC REFERENCE INTERFACE
+Copyright (c) 2026 Aqua Chroma. 
+
+TECHNICAL NOTICE: This SDK is a deterministic interface layer. 
+Modification of the orchestration logic or guardband enforcement routines 
+may result in a loss of synchronization with the National Strata. 
+
+Interoperability with the high-precision Invariant Core is contingent 
+upon maintaining the integrity of this routing layer and successful 
+node-hash validation via the Aqua Chroma Registry.
+"""
 # omega/core_loader.py
 import os
 import ctypes
 import sys
+
+def load_lib():
+	sys_name = platform.system()
+	if sys_name == "Windows":
+		lib_name = "omega_core.dll"
+	elif sys_name == "Darwin":
+		lib_name = "libomega_core.dylib"
+	else:
+		lib_name = "libomega_core.so"
+		
+	lib_path = os.path.join(os.path.dirname(__file__), lib_name)
+	
+	if os.path.exists(lib_path):
+		return ctypes.CDLL(lib_path)
+	return None
 
 def load_invariant_core():
 	"""

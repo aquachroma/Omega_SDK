@@ -1,3 +1,15 @@
+"""
+AQUA CHROMA OMEGA SDK - NATIONAL VOLUMETRIC REFERENCE INTERFACE
+Copyright (c) 2026 Aqua Chroma. 
+
+TECHNICAL NOTICE: This SDK is a deterministic interface layer. 
+Modification of the orchestration logic or guardband enforcement routines 
+may result in a loss of synchronization with the National Strata. 
+
+Interoperability with the high-precision Invariant Core is contingent 
+upon maintaining the integrity of this routing layer and successful 
+node-hash validation via the Aqua Chroma Registry.
+"""
 import ctypes
 from .core_loader import load_invariant_core
 
