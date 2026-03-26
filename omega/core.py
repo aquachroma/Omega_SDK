@@ -29,8 +29,8 @@ def establish_sovereignty(target_gt):
 		return False
 	
 	# Map to C++: void establish_lock(float mass)
-	_handle.establish_lock.argtypes = [ctypes.c_float]
-	_handle.establish_lock(float(target_gt))
+	_handle.apply_harmonic_sync.argtypes = [ctypes.c_float]
+	_handle.apply_harmonic_sync(float(target_gt))
 	return True
 
 def check_grid_density():
