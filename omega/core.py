@@ -41,8 +41,8 @@ def check_grid_density():
 		return 16 # Default baseline
 	
 	# Map to C++: int get_density()
-	_handle.get_density.restype = ctypes.c_int
-	return _handle.get_density()
+	_handle.get_voxel_integrity.restype = ctypes.c_int
+	return _handle.get_voxel_integrity()
 
 def initiate_decoherence():
 	"""
